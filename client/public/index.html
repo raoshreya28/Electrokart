@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
     /* Style for the chatbot button */
-    .chatbot-button {
+    .chatbot-button, .voice-search-icon, .recommendation-button {
       background-color: black;
       color: white;
       border: none;
@@ -26,6 +26,18 @@
       position: fixed;
       bottom: 20px;
       left: 20px; /* Adjusted to left side */
+    }
+
+    .voice-search-icon {
+      position: fixed;
+      bottom: 20px; /* Adjusted to same level as chatbot button */
+      left: 120px; /* Adjusted to be a little more to the right side */
+    }
+
+    .recommendation-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px; /* Adjusted to right side */
     }
 
     /* Style for the chatbot iframe */
@@ -45,8 +57,63 @@
   <!-- Chatbot iframe -->
   <iframe id="chatbotFrame" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/8f875fe4-4b5e-4515-aff2-90e14407c7e0"></iframe>
   <!-- Chatbot button -->
-  <a href="http://127.0.0.1:5001/" class="btn btn-primary chatbot-button">Chatbot</a>
+  <a href="http://127.0.0.1:5002/" class="btn btn-primary chatbot-button">Chatbot</a>
+  <!-- Voice search icon -->
+  <button class="voice-search-icon" onclick="performSearchWithVoice()">
+    <img src="voice-search-icon.png" alt="Voice Search" style="width: 24px; height: 24px;">
+  </button>
+  <!-- Button to open Recommendations page -->
+  <a href="recommendations.html" class="btn btn-primary recommendation-button">Give Me Recommendations!!</a>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // Function to perform search based on voice input
+    function performSearchWithVoice() {
+      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        var recognition = new (window.webkitSpeechRecognition || window.SpeechRecognition)();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        recognition.onresult = function(event) {
+          var transcript = event.results[0][0].transcript.toLowerCase().trim(); // Convert transcript to lowercase and trim spaces for easier comparison
+          console.log("Recognized text:", transcript);
+          
+          // Map voice input to relevant pages
+          var pageMap = {
+            "mobile": "category/mobiles",
+            "mobiles": "category/mobiles",
+            "laptop": "category/laptops",
+            "laptops": "category/laptops",
+            "camera": "category/cameras",
+            "cameras": "category/cameras",
+            "television": "category/televisions",
+            "televisions": "category/televisions",
+            "game": "category/gaming",
+            "gaming": "category/gaming",
+            "tablet": "category/tablets",
+            "tablets": "category/tablets",
+            "cart":"/cart",
+            "electronics":"/categories",
+            "home":"/",
+        
+            "login": "/login",
+            "register": "/register"
+            // Add more mappings here
+          };
+
+          var pageURL = pageMap[transcript];
+          if (pageURL) {
+            console.log("Redirecting to:", pageURL);
+            window.location.href = pageURL; // Redirect to the recognized page URL
+          }
+        };
+
+        recognition.start();
+      } else {
+        alert("Speech recognition is not supported in this browser.");
+      }
+    }
+  </script>
 </body>
 </html>
