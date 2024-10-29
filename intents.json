@@ -1,0 +1,92 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Good day", "Hey there", "Is anyone available?"],
+      "responses": [
+        "Hello! Welcome to SmartHire. How can I assist you with your job search today?",
+        "Hi there! Welcome to SmartHire. Are you looking for a job or trying to improve your resume?",
+        "Good day! How can SmartHire help you today with hiring or job searching?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later"],
+      "responses": [
+        "Goodbye! Wishing you success with your job search on SmartHire.",
+        "Bye! Don’t hesitate to come back if you need help with your career or hiring process."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thank you", "Thanks", "Much appreciated", "That's helpful"],
+      "responses": [
+        "You're welcome! Glad to assist you on SmartHire.",
+        "Happy to help! If you need further assistance, feel free to ask."
+      ]
+    },
+    {
+      "tag": "features",
+      "patterns": ["What can SmartHire do?", "Tell me about SmartHire features", "What services does SmartHire provide?"],
+      "responses": [
+        "SmartHire offers features like skill gap analysis, course recommendations, resume filtering, resume scoring, and job application management to help you in your career journey."
+      ]
+    },
+    {
+      "tag": "profile_creation",
+      "patterns": ["How do I create a profile?", "Can you help me create a profile?", "How to set up my profile on SmartHire?"],
+      "responses": [
+        "To create a profile, head to the registration section and fill in your details. Once completed, you can manage your profile and start searching for jobs."
+      ]
+    },
+    {
+      "tag": "job_search",
+      "patterns": ["How do I search for jobs?", "Can I look for jobs here?", "How can I find job opportunities on SmartHire?"],
+      "responses": [
+        "To search for jobs, log in and use the job search feature. You can filter job listings based on your skills and preferences."
+      ]
+    },
+    {
+      "tag": "resume_analysis",
+      "patterns": ["Can SmartHire analyze my resume?", "How does resume analysis work?", "Help me with resume tips."],
+      "responses": [
+        "SmartHire provides detailed resume analysis, including resume tips, ATS (Applicant Tracking System) scoring, and recommendations for improvement to make your resume stand out."
+      ]
+    },
+    {
+      "tag": "skill_gap_analysis",
+      "patterns": ["What is skill gap analysis?", "Can SmartHire help me with skills?", "How can I improve my skills?"],
+      "responses": [
+        "The skill gap analysis feature identifies areas where your skills can be improved and suggests courses or training videos to help bridge the gap."
+      ]
+    },
+    {
+      "tag": "resume_filtering",
+      "patterns": ["How does resume filtering work?", "Can I filter resumes?", "How do you filter job applications?"],
+      "responses": [
+        "Resume filtering helps employers identify the most relevant resumes based on job criteria, ensuring only the best-suited candidates are highlighted."
+      ]
+    },
+    {
+      "tag": "resume_score",
+      "patterns": ["What is resume scoring?", "How can I improve my resume score?", "Can SmartHire score my resume?"],
+      "responses": [
+        "SmartHire provides a resume score that rates your resume based on key metrics such as ATS compatibility, keyword matching, and overall presentation. You will also receive suggestions on how to improve your score."
+      ]
+    },
+    {
+      "tag": "job_posting",
+      "patterns": ["How can companies post jobs?", "Can I post a job here?", "How do job postings work on SmartHire?"],
+      "responses": [
+        "Companies can post jobs by logging in, creating a profile, and using the 'Post Job' feature. You can manage all job listings and applications directly from your dashboard."
+      ]
+    },
+    {
+      "tag": "resume_summarization",
+      "patterns": ["Does SmartHire summarize resumes?", "How can I get a resume summary?", "Can SmartHire summarize job applications?"],
+      "responses": [
+        "Yes! SmartHire includes a resume summarization feature that provides a concise summary of key skills and experience, making it easier for employers to review applications."
+      ]
+    }
+  ]
+}
