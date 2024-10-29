@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>Popular Electronics Recommendations</h1>
+    <ul class="list-group">
+      <li class="list-group-item">Smartphone: iPhone 14</li>
+      <li class="list-group-item">Laptop: Dell XPS 13</li>
+      <li class="list-group-item">Camera: Canon EOS R5</li>
+      <li class="list-group-item">Television: Samsung QLED 4K</li>
+      <li class="list-group-item">Tablet: Apple iPad Pro</li>
+      <li class="list-group-item">Smartwatch: Apple Watch Series 8</li>
+      <!-- Add more items as needed -->
+    </ul>
+    <a href="index.html" class="btn btn-primary mt-4">Back to Home</a>
+  </div>
+</body>
+</html>
