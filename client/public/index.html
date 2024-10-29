@@ -10,13 +10,8 @@
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
-<<<<<<< srushti
     /* Style for the buttons */
-    .chatbot-button, .voice-search-icon, .recommendation-button, .faq-button {
-=======
-    /* Style for the chatbot button */
-    .chatbot-button, .voice-search-icon, .recommendation-button {
->>>>>>> main
+    .chatbot-button, .voice-search-icon, .recommendation-button, .faq-button, .service-button {
       background-color: black;
       color: white;
       border: none;
@@ -24,11 +19,12 @@
       padding: 15px;
       cursor: pointer;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      margin: 10px; /* Added margin to prevent overlap */
       transition: background-color 0.3s, transform 0.3s; /* Add smooth transition */
     }
 
     /* Hover effect */
-    .chatbot-button:hover, .faq-button:hover, .voice-search-icon:hover, .recommendation-button:hover {
+    .chatbot-button:hover, .faq-button:hover, .voice-search-icon:hover, .recommendation-button:hover, .service-button:hover {
       background-color: #333; /* Darken background on hover */
       transform: scale(1.1); /* Slightly increase size on hover */
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow effect */
@@ -56,19 +52,13 @@
     .recommendation-button {
       position: fixed;
       bottom: 20px;
-      right: 20px;
+      right: 120px; /* Adjusted to create space */
     }
 
-    .voice-search-icon {
-      position: fixed;
-      bottom: 20px; /* Adjusted to same level as chatbot button */
-      left: 120px; /* Adjusted to be a little more to the right side */
-    }
-
-    .recommendation-button {
+    .service-button {
       position: fixed;
       bottom: 20px;
-      right: 20px; /* Adjusted to right side */
+      right: 20px; /* Adjusted to create space */
     }
 
     /* Style for the chatbot iframe */
@@ -85,6 +75,7 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  
   <!-- Chatbot iframe -->
   <iframe id="chatbotFrame" width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/8f875fe4-4b5e-4515-aff2-90e14407c7e0"></iframe>
   
@@ -93,23 +84,18 @@
   
   <!-- Chatbot button -->
   <a href="http://127.0.0.1:5002/" class="btn btn-primary chatbot-button">Chatbot</a>
-<<<<<<< srushti
-  
-=======
->>>>>>> main
+
   <!-- Voice search icon -->
   <button class="voice-search-icon" onclick="performSearchWithVoice()">
     <img src="voice-search-icon.png" alt="Voice Search" style="width: 24px; height: 24px;">
   </button>
-<<<<<<< srushti
   
   <!-- Button to open Recommendations page -->
   <a href="recommendations.html" class="btn btn-primary recommendation-button">Give Me Recommendations!!</a>
+
+  <!-- New Service button -->
+  <a href="service.html" class="btn btn-primary service-button">Our Services</a>
   
-=======
-  <!-- Button to open Recommendations page -->
-  <a href="recommendations.html" class="btn btn-primary recommendation-button">Give Me Recommendations!!</a>
->>>>>>> main
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
@@ -122,11 +108,7 @@
         recognition.maxAlternatives = 1;
 
         recognition.onresult = function(event) {
-<<<<<<< srushti
           var transcript = event.results[0][0].transcript.toLowerCase().trim();
-=======
-          var transcript = event.results[0][0].transcript.toLowerCase().trim(); // Convert transcript to lowercase and trim spaces for easier comparison
->>>>>>> main
           console.log("Recognized text:", transcript);
           
           // Map voice input to relevant pages
@@ -146,25 +128,14 @@
             "cart":"/cart",
             "electronics":"/categories",
             "home":"/",
-<<<<<<< srushti
             "login": "/login",
             "register": "/register"
-=======
-        
-            "login": "/login",
-            "register": "/register"
-            // Add more mappings here
->>>>>>> main
           };
 
           var pageURL = pageMap[transcript];
           if (pageURL) {
             console.log("Redirecting to:", pageURL);
-<<<<<<< srushti
-            window.location.href = pageURL;
-=======
             window.location.href = pageURL; // Redirect to the recognized page URL
->>>>>>> main
           }
         };
 
